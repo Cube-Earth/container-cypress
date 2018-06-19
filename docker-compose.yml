@@ -1,0 +1,13 @@
+version: '2'
+services:
+  main:
+    build:
+        context: .
+        args:
+            - http_proxy
+            - https_proxy
+            - no_proxy
+    image: cubeearth/cypress:ubuntu_bionic
+    volumes:
+    - $HOME/.containers/xpra/sockets:/var/run/xpra:rw
+    - ./project:/home/desktop/package/cypress
